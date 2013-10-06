@@ -4,27 +4,27 @@ import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
 
-public final class Venda implements Subject {
+public final class Venda implements Event {
 
-	private List<Observer> observers = new LinkedList<>();
+	private List<Listener> listeners = new LinkedList<>();
 
 	private Produto produto;
 	private BigDecimal quantidade;
 
 	@Override
-	public void registerObserver(Observer observer) {
-		observers.add(observer);
+	public void addListener(Listener listener) {
+		listeners.add(listener);
 	}
 
 	@Override
-	public void removeObserver(Observer observer) {
-		observers.remove(observer);
+	public void removeListener(Listener listener) {
+		listeners.remove(listener);
 	}
 
 	@Override
-	public void notifyObservers() {
-		for (Observer observer : observers) {
-			observer.atualizarEstoque(produto, quantidade);
+	public void fireAtualizarEstoque() {
+		for (Listener listener : listeners) {
+			listener.atualizarEstoque(produto, quantidade);
 		}
 	}
 
@@ -34,7 +34,7 @@ public final class Venda implements Subject {
 
 		System.out.println("\nVenda efetuada com sucesso!\n");
 
-		notifyObservers();
+		fireAtualizarEstoque();
 	}
 
 }

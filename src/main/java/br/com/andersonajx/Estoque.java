@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class Estoque implements Observer {
+public final class Estoque implements Listener {
 
 	private Map<Produto, BigDecimal> produtos = new HashMap<>();
 

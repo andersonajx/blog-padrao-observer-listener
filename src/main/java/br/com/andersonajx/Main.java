@@ -13,7 +13,7 @@ public class Main {
 		estoque.adicionarProdutoEmEstoque(new Produto(2L, "Trakinas Chocolate"), BigDecimal.TEN);
 		estoque.adicionarProdutoEmEstoque(new Produto(3L, "Doritos 500g"), BigDecimal.TEN);
 
-		venda.registerObserver(estoque);
+		venda.addListener(estoque);
 	}
 
 	public static void main(String[] args) {

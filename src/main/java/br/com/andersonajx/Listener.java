@@ -2,7 +2,7 @@ package br.com.andersonajx;
 
 import java.math.BigDecimal;
 
-public interface Observer {
+public interface Listener {
 
 	void atualizarEstoque(Produto produto, BigDecimal quantidade);
 
